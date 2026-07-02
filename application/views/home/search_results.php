@@ -70,11 +70,11 @@
                             $waText = 'Saya ingin membeli '.$name.' dengan harga Rp '.number_format($price,0,',','.');
                         ?>
                         <div class="col-md-4" style="margin-bottom: 30px;">
-                            <div class="card" style="cursor:pointer; border:1px solid #ececec; border-radius: 10px; overflow:hidden;" data-toggle="modal" data-target="#productModal<?= $item['id'] ?>">
+                            <div class="card" style="border:1px solid #ececec; border-radius: 10px; overflow:hidden;">
                                 <?php if (!empty($image)): ?>
-                                    <img src="<?= base_url('assets/uploads/'.$image) ?>" style="width:100%; height:320px; object-fit:cover;" alt="<?= htmlspecialchars($name) ?>">
+                                    <img src="<?= base_url('assets/uploads/'.$image) ?>" style="width:100%; height:320px; object-fit:cover; cursor:pointer;" alt="<?= htmlspecialchars($name) ?>" data-toggle="modal" data-target="#productModal<?= $item['id'] ?>">
                                 <?php else: ?>
-                                    <img src="https://via.placeholder.com/400x320?text=No+Image" style="width:100%; height:320px; object-fit:cover;" alt="No Image">
+                                    <img src="https://via.placeholder.com/400x320?text=No+Image" style="width:100%; height:320px; object-fit:cover; cursor:pointer;" alt="No Image" data-toggle="modal" data-target="#productModal<?= $item['id'] ?>">
                                 <?php endif; ?>
                                 <div style="padding: 15px;">
                                     <h4 style="font-size:22px; margin-bottom:10px;"><?= htmlspecialchars($name) ?></h4>
