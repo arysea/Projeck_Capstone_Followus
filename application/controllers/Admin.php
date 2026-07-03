@@ -106,8 +106,8 @@ class Admin extends CI_Controller {
 
         $data['title'] = 'Dashboard Admin';
         // Hitung total data untuk ditampilkan di dashboard
-        $data['total_barang'] = count($this->Admin_model->get_all_barang());
-        $data['total_banner'] = count($this->Admin_model->get_all_banner());
+        $data['total_produk'] = count($this->Admin_model->get_all_barang()) + count($this->Admin_model->get_all_koleksi());
+        $data['total_banner'] = min(2, $this->Admin_model->count_active_banners_by_tag('hu')) + min(1, $this->Admin_model->count_active_banners_by_tag('hk'));
         $data['total_user'] = count($this->Admin_model->get_all_users());
 
         // Load view beserta template (Header, Sidebar, Konten, Footer)

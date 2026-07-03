@@ -37,7 +37,7 @@
             </li>
             <li class="mt-4">
                 <!-- Link Logout -->
-                <a href="<?= site_url('admin/logout') ?>" class="sidebar-link text-danger" onclick="return confirm('Yakin ingin keluar?')">
+                <a href="<?= site_url('admin/logout') ?>" class="sidebar-link text-danger delete-confirm" data-message="Yakin ingin keluar?">
                     <i class="fas fa-power-off me-2"></i> Keluar
                 </a>
             </li>

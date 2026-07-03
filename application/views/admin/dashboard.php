@@ -3,7 +3,7 @@
     <!-- Kotak Info Total Produk -->
     <div class="col-md-4 mb-4">
         <div class="card card-custom p-3 text-center">
-            <h2 class="fw-bold text-dark"><?= $total_barang ?></h2>
+            <h2 class="fw-bold text-dark"><?= $total_produk ?></h2>
             <p class="text-muted mb-0 fw-bold">Total Produk</p>
         </div>
     </div>

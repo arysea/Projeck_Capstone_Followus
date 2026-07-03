@@ -35,7 +35,7 @@
                             </a>
                             <!-- Jangan tampilkan hapus jika ini adalah akun yang sedang login -->
                             <?php if($this->session->userdata('id_user') != $u['id']): ?>
-                                <a href="<?= site_url('admin/hapus_user/'.$u['id']) ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
+                                <a href="<?= site_url('admin/hapus_user/'.$u['id']) ?>" class="btn btn-danger btn-sm delete-confirm" data-message="Apakah Anda yakin ingin menghapus user ini?">
                                     Hapus
                                 </a>
                             <?php else: ?>

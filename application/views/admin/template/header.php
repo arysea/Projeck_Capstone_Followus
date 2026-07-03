@@ -48,6 +48,46 @@
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
+        .modal-confirm .modal-content {
+            border-radius: 1rem;
+            border: none;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+        .modal-confirm .modal-header {
+            border-bottom: none;
+            position: relative;
+        }
+        .modal-confirm .modal-title {
+            margin: 0;
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: #111827;
+        }
+        .modal-confirm .modal-body {
+            color: #4b5563;
+            font-size: 1.15rem;
+        }
+        .modal-confirm .modal-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1rem;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: #e0e7ff;
+            color: #4f46e5;
+            font-size: 2.25rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .modal-confirm .modal-icon i {
+            line-height: 1;
+        }
+        .modal-confirm .btn {
+            border-radius: 50px;
+            min-width: 110px;
+        }
     </style>
 </head>
 <body>

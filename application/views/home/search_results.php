@@ -12,6 +12,26 @@
     <link rel="stylesheet" href="<?= base_url('template_home/css/font-awesome.min.css') ?>">
     <link type="text/css" rel="stylesheet" href="<?= base_url('template_home/css/style.css') ?>"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .search-title {
+            font-size: 22px;
+            line-height: 1.2;
+            min-height: 2.4em;
+            max-height: 2.4em;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            word-wrap: break-word;
+            margin-bottom: 10px;
+        }
+        .search-item .image-frame img {
+            transition: transform 0.3s ease;
+        }
+        .search-item .image-frame:hover img {
+            transform: translateY(-6px) scale(1.02);
+        }
+    </style>
 </head>
 <body>
     <header style="border-bottom: 1px solid #B7B7B7;">
@@ -70,14 +90,16 @@
                             $waText = 'Saya ingin membeli '.$name.' dengan harga Rp '.number_format($price,0,',','.');
                         ?>
                         <div class="col-md-4" style="margin-bottom: 30px;">
-                            <div class="card" style="border:1px solid #ececec; border-radius: 10px; overflow:hidden;">
-                                <?php if (!empty($image)): ?>
-                                    <img src="<?= base_url('assets/uploads/'.$image) ?>" style="width:100%; height:320px; object-fit:cover; cursor:pointer;" alt="<?= htmlspecialchars($name) ?>" data-toggle="modal" data-target="#productModal<?= $item['id'] ?>">
-                                <?php else: ?>
-                                    <img src="https://via.placeholder.com/400x320?text=No+Image" style="width:100%; height:320px; object-fit:cover; cursor:pointer;" alt="No Image" data-toggle="modal" data-target="#productModal<?= $item['id'] ?>">
-                                <?php endif; ?>
+                            <div class="card" style="border:none; border-radius: 10px; overflow:hidden;">
+                                <div class="image-frame border-timbul">
+                                    <?php if (!empty($image)): ?>
+                                        <img src="<?= base_url('assets/uploads/'.$image) ?>" style="width:100%; height:320px; object-fit:cover; cursor:pointer;" alt="<?= htmlspecialchars($name) ?>" data-toggle="modal" data-target="#productModal<?= $item['id'] ?>">
+                                    <?php else: ?>
+                                        <img src="https://via.placeholder.com/400x320?text=No+Image" style="width:100%; height:320px; object-fit:cover; cursor:pointer;" alt="No Image" data-toggle="modal" data-target="#productModal<?= $item['id'] ?>">
+                                    <?php endif; ?>
+                                </div>
                                 <div style="padding: 15px;">
-                                    <h4 style="font-size:22px; margin-bottom:10px;"><?= htmlspecialchars($name) ?></h4>
+                                    <h4 class="search-title"><?= htmlspecialchars($name) ?></h4>
                                     <div style="font-size:18px; color:#d10024; font-weight:700; margin-bottom:10px;">Rp <?= number_format($price, 0, ',', '.') ?></div>
                                     <div style="font-size:16px; color:#7e7e7e; margin-bottom:12px;">Ukuran: <?= htmlspecialchars($size) ?></div>
                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#productModal<?= $item['id'] ?>">Lihat Detail</button>
