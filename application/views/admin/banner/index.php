@@ -14,6 +14,7 @@
                         <th>Gambar</th>
                         <th>Judul Banner</th>
                         <th>Deskripsi Banner</th>
+                        <th>Tag</th>
                         <th>Status</th>
                         <th class="text-center">Aksi</th>
                     </tr>
@@ -31,6 +32,7 @@
                         </td>
                         <td class="fw-bold"><?= htmlspecialchars($b['judul_banner'] ?? '-') ?></td>
                         <td class="fw-bold"><?= htmlspecialchars($b['deskripsi_banner']) ?></td>
+                        <td class="fw-bold"><?= htmlspecialchars($b['tag'] ?? '-') ?></td>
                         <td>
                             <!-- Menampilkan badge status Aktif / Tidak Aktif -->
                             <?php if($b['status_banner'] == 'Aktif'): ?>

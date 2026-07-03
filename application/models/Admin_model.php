@@ -251,4 +251,14 @@ class Admin_model extends CI_Model {
         return $this->db->update('tbl_banner', ['is_delete' => 1]);
     }
 
+    public function count_active_banners_by_tag($tag, $exclude_id = null) {
+        $this->db->where('is_delete', 0);
+        $this->db->where('status_banner', 'Aktif');
+        $this->db->where('tag', $tag);
+        if ($exclude_id !== null) {
+            $this->db->where('id !=', $exclude_id);
+        }
+        return $this->db->count_all_results('tbl_banner');
+    }
+
 }

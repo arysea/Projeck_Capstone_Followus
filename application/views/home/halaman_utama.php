@@ -76,7 +76,7 @@
 							<ul class="main-nav nav navbar-nav">
 								<!-- <li class="active"><a href="#">PRODUK BARU</a></li> -->
 								<li><a href="<?= base_url('index.php/home/')?>" style="font-size:20px; font-weight:600" >PRODUK BARU</a></li>
-								<li><a href="<?= base_url('index.php/home/koleksi')?>" style="font-size:20px; font-weight:600" >KOLEKSI</a></li>
+					<li><a href="<?= base_url('index.php/koleksi') ?>" style="font-size:20px; font-weight:600">KOLEKSI</a></li>
 							</ul>
 							<!-- /NAV -->
 						</div>

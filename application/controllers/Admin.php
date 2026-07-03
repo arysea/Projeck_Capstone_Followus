@@ -401,10 +401,24 @@ class Admin extends CI_Controller {
             $gambar_banner = $upload_data['file_name'];
         }
 
+        $tag = $this->input->post('tag');
+        $activeCount = $this->Admin_model->count_active_banners_by_tag($tag);
+        if ($tag === 'hu' && $activeCount >= 2 && $this->input->post('status_banner') === 'Aktif') {
+            $this->session->set_flashdata('error', 'Hanya diperbolehkan 2 banner aktif untuk tag hu.');
+            redirect('admin/tambah_banner');
+            return;
+        }
+        if ($tag === 'hk' && $activeCount >= 1 && $this->input->post('status_banner') === 'Aktif') {
+            $this->session->set_flashdata('error', 'Hanya diperbolehkan 1 banner aktif untuk tag hk.');
+            redirect('admin/tambah_banner');
+            return;
+        }
+
         $data = array(
             'judul_banner'    => $this->input->post('judul_banner'),
             'deskripsi_banner' => $this->input->post('deskripsi_banner'),
             'status_banner'    => $this->input->post('status_banner'),
+            'tag'              => $tag,
             'gambar_banner'    => $gambar_banner,
             'is_delete'        => 0
         );
@@ -453,10 +467,24 @@ class Admin extends CI_Controller {
             }
         }
 
+        $tag = $this->input->post('tag');
+        $activeCount = $this->Admin_model->count_active_banners_by_tag($tag, $id);
+        if ($tag === 'hu' && $activeCount >= 2 && $this->input->post('status_banner') === 'Aktif') {
+            $this->session->set_flashdata('error', 'Hanya diperbolehkan 2 banner aktif untuk tag hu.');
+            redirect('admin/edit_banner/'.$id);
+            return;
+        }
+        if ($tag === 'hk' && $activeCount >= 1 && $this->input->post('status_banner') === 'Aktif') {
+            $this->session->set_flashdata('error', 'Hanya diperbolehkan 1 banner aktif untuk tag hk.');
+            redirect('admin/edit_banner/'.$id);
+            return;
+        }
+
         $data = array(
             'judul_banner'    => $this->input->post('judul_banner'),
             'deskripsi_banner' => $this->input->post('deskripsi_banner'),
             'status_banner'    => $this->input->post('status_banner'),
+            'tag'              => $tag,
             'gambar_banner'    => $gambar_banner
         );
 

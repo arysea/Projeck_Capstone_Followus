@@ -22,6 +22,15 @@
                         <option value="Tidak Aktif">Tidak Aktif</option>
                     </select>
                 </div>
+
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Tag Banner</label>
+                    <select name="tag" class="form-select" required>
+                        <option value="">-- Pilih Tag --</option>
+                        <option value="hu">hu (Halaman Utama)</option>
+                        <option value="hk">hk (Halaman Koleksi)</option>
+                    </select>
+                </div>
                 
                 <div class="col-md-12 mb-3">
                     <label class="form-label">Gambar Banner</label>

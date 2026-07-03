@@ -60,4 +60,14 @@ class Home_model extends CI_Model {
         return $this->db->get('tbl_banner')->result_array();
     }
 
+    // Mengambil banner aktif sesuai tag
+    public function get_active_banners_by_tag($tag, $limit = 2) {
+        $this->db->where('is_delete', 0);
+        $this->db->where('status_banner', 'Aktif');
+        $this->db->where('tag', $tag);
+        $this->db->order_by('id', 'DESC');
+        $this->db->limit($limit);
+        return $this->db->get('tbl_banner')->result_array();
+    }
+
 }

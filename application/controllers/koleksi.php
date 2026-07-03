@@ -10,7 +10,10 @@ class Koleksi extends CI_Controller {
 
     public function index()
     {
-        $this->load->view('koleksi/halaman_koleksi');
+        $this->load->model('Home_model');
+        $banners = $this->Home_model->get_active_banners_by_tag('hk', 1);
+        $data['banner'] = isset($banners[0]) ? $banners[0] : null;
+        $this->load->view('koleksi/halaman_koleksi', $data);
     }
 
     public function kaos()

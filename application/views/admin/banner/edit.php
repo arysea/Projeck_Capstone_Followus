@@ -23,6 +23,15 @@
                         <option value="Tidak Aktif" <?= ($banner['status_banner'] == 'Tidak Aktif') ? 'selected' : '' ?>>Tidak Aktif</option>
                     </select>
                 </div>
+
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Tag Banner</label>
+                    <select name="tag" class="form-select" required>
+                        <option value="">-- Pilih Tag --</option>
+                        <option value="hu" <?= ($banner['tag'] == 'hu') ? 'selected' : '' ?>>hu (Halaman Utama)</option>
+                        <option value="hk" <?= ($banner['tag'] == 'hk') ? 'selected' : '' ?>>hk (Halaman Koleksi)</option>
+                    </select>
+                </div>
                 
                 <div class="col-md-12 mb-3">
                     <label class="form-label">Gambar Banner</label>

@@ -7,7 +7,7 @@ class Home extends CI_Controller {
 	public function index()
 	{
 		$this->load->model('Home_model');
-        $banners = $this->Home_model->get_active_banners(2);
+        $banners = $this->Home_model->get_active_banners_by_tag('hu', 2);
         $data['banner'] = isset($banners[0]) ? $banners[0] : null;
         $data['banner_second'] = isset($banners[1]) ? $banners[1] : null;
         $data['barang'] = $this->Home_model->get_home_barang();
@@ -27,7 +27,7 @@ class Home extends CI_Controller {
 
 	public function koleksi()
 	{
-		$this->load->view('koleksi/halaman_koleksi');
+		redirect('koleksi');
 	}
 	public function login()
 	{
