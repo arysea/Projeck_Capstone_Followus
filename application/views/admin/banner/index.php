@@ -45,7 +45,7 @@
                             <a href="<?= site_url('admin/edit_banner/'.$b['id']) ?>" class="btn btn-info btn-sm text-white" style="background-color: #38bdf8; border-color: #38bdf8;">
                                 Ubah
                             </a>
-                            <a href="<?= site_url('admin/hapus_banner/'.$b['id']) ?>" class="btn btn-danger btn-sm delete-confirm" data-message="Apakah Anda yakin ingin menghapus banner ini?">
+                            <a href="<?= site_url('admin/hapus_banner/'.$b['id']) ?>" class="btn btn-danger btn-sm confirm-action" data-confirm-title="Konfirmasi Hapus" data-confirm-message="Apakah Anda yakin ingin menghapus data ini?">
                                 Hapus
                             </a>
                         </td>

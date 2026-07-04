@@ -40,7 +40,7 @@
                                 Ubah
                             </a>
                             <!-- Tombol Hapus -->
-                            <a href="<?= site_url('admin/hapus_barang/'.$b['id']) ?>" class="btn btn-danger btn-sm delete-confirm" data-message="Apakah Anda yakin ingin menghapus produk ini?">
+                            <a href="<?= site_url('admin/hapus_barang/'.$b['id']) ?>" class="btn btn-danger btn-sm confirm-action" data-confirm-title="Konfirmasi Hapus" data-confirm-message="Apakah Anda yakin ingin menghapus data ini?">
                                 Hapus
                             </a>
                         </td>

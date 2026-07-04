@@ -7,49 +7,44 @@
 <!-- Memanggil Javascript Bootstrap 5 -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- Modal Konfirmasi Penghapusan -->
-<div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-sm">
-        <div class="modal-content modal-confirm">
-            <div class="modal-header border-0">
-                <h5 class="modal-title" id="confirmDeleteModalLabel">Konfirmasi</h5>
+<!-- Modal Konfirmasi Global -->
+<div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmModalLabel">Konfirmasi</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
             </div>
-            <div class="modal-body text-center">
-                <div class="modal-icon">
-                    <i class="fas fa-question"></i>
-                </div>
-                <p class="mb-4" id="confirmDeleteModalMessage">Apakah Anda yakin ingin melanjutkan aksi ini?</p>
-                <button type="button" class="btn btn-secondary btn-sm me-2" data-bs-dismiss="modal">Tidak</button>
-                <button type="button" class="btn btn-danger btn-sm confirm-delete-btn">Ya</button>
+            <div class="modal-body" id="confirmModalMessage">
+                Apakah Anda yakin?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                <a href="#" id="confirmModalYes" class="btn btn-danger">Ya, lanjutkan</a>
             </div>
         </div>
     </div>
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var deleteModalEl = document.getElementById('confirmDeleteModal');
-        if (!deleteModalEl) return;
-        var confirmDeleteBtn = deleteModalEl.querySelector('.confirm-delete-btn');
-        var deleteMessage = document.getElementById('confirmDeleteModalMessage');
-        var deleteModal = new bootstrap.Modal(deleteModalEl);
+    document.addEventListener('DOMContentLoaded', function() {
+        const confirmModal = new bootstrap.Modal(document.getElementById('confirmModal'));
+        const confirmMessage = document.getElementById('confirmModalMessage');
+        const confirmYes = document.getElementById('confirmModalYes');
+        const confirmTitle = document.getElementById('confirmModalLabel');
 
-        document.querySelectorAll('a.delete-confirm').forEach(function (link) {
-            link.addEventListener('click', function (e) {
-                e.preventDefault();
-                var message = link.dataset.message || 'Apakah Anda yakin ingin melanjutkan aksi ini?';
-                deleteMessage.textContent = message;
-                confirmDeleteBtn.dataset.href = link.href;
-                deleteModal.show();
+        document.querySelectorAll('.confirm-action').forEach(function(element) {
+            element.addEventListener('click', function(event) {
+                event.preventDefault();
+                const href = element.getAttribute('href');
+                const title = element.getAttribute('data-confirm-title') || 'Konfirmasi';
+                const message = element.getAttribute('data-confirm-message') || 'Apakah Anda yakin ingin melanjutkan tindakan ini?';
+
+                confirmTitle.textContent = title;
+                confirmMessage.textContent = message;
+                confirmYes.setAttribute('href', href);
+                confirmModal.show();
             });
-        });
-
-        confirmDeleteBtn.addEventListener('click', function () {
-            var href = confirmDeleteBtn.dataset.href;
-            if (href) {
-                window.location.href = href;
-            }
         });
     });
 </script>
